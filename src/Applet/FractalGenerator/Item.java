@@ -1,28 +1,5 @@
 package Applet.FractalGenerator;
 
-import java.lang.*;
-
-class MyPoint {
-   private double x, y;
-
-   MyPoint(){}
-   MyPoint(double x, double y){ this.setX(x); this.setY(y); }
-   MyPoint(MyPoint myPoint){ this.setX(myPoint.getX()); this.setY(myPoint.getY());  }
-
-   public void setX(double x) {
-      this.x=x;
-   }
-   public void setY(double y) {
-      this.y=y;
-   }
-   public double getX() {
-      return x;
-   }
-   public double getY() {
-      return y;
-   }
-}
-
 public class Item {
    private double angle, length;
    private MyPoint start, end;
@@ -35,7 +12,7 @@ public class Item {
    }
 
    public void setEnd(double x, double y){
-      end.setY(x);
+      end.setX(x);
       end.setY(y);
    }
 
@@ -60,15 +37,15 @@ public class Item {
       return null;
    }
 
-   public double getNewAngleRadians(double radians) {
+   public double getNextAngleRadians(double radians) {
       return this.angle+radians;
    }
 
-   public double getNewAngleDegrees(double degrees) {
-     return this.getNewAngleRadians(Math.toRadians(degrees));
+   public double getNextAngleDegrees(double degrees) {
+     return this.getNextAngleRadians(Math.toRadians(degrees));
    }
 
-   public double getNewLength(Double percent) {
+   public double getNextLength(Double percent) {
       return this.length*percent / 100.0;
    }
 }
