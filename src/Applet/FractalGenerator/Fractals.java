@@ -1,7 +1,5 @@
 package Applet.FractalGenerator;
 
-import com.sun.xml.internal.bind.v2.TODO;
-
 import java.util.List;
 import java.util.Random;
 
@@ -61,24 +59,25 @@ public class Fractals {
       int currentGen = (int)genome%10;
       genome/=10;
 
-      // TODO доделать алгоритмы в свичах
+      // TODO доделать алгоритмы в свиче
 
       switch(currentGen){
          case BRANCH_PYTHAGORAS: {
             int branchCount = randBranchCount(4);
             for(int i=0; i<branchCount; i++) {
                int nextBranchLengthFactor = seed.nextInt(15)* 5 + 10;
-               double nextBranchLength = parentBranch.getNextLength((double)nextBranchLengthFactor);
+               double nextBranchLength = parentBranch.nextLength((double) nextBranchLengthFactor);
                int nextBranchAngleFactor = seed.nextInt(10)* 8 - 40;
-               double nextBranchAngle = parentBranch.getNextAngleDegrees((double)nextBranchAngleFactor);
-               Item currentBranch = new Item((int)parentBranch.getEndX(), (int)parentBranch.getEndY(), nextBranchAngle, nextBranchLength);
+               double nextBranchAngle = parentBranch.nextAngleDegrees((double) nextBranchAngleFactor);
+
+               Item currentBranch = new Item(parentBranch.getEnd(), nextBranchAngle, nextBranchLength);
                lastGenerated.add(currentBranch);
                genNextBranch(genome,currentBranch);
                }
             break;
          }
          case BRANCH_ON_TRUNK: {
-            double tempLength = parentBranch.getNextLength(80.0);
+            double tempLength = parentBranch.nextLength(80.0);
             while(tempLength > 3) {
 
             }

@@ -2,11 +2,39 @@ package Applet.FractalGenerator;
 
 public class Item {
    private double angle, length;
-   private MyPoint start, end;
+   private MyPoint start;
+
+
+   private MyPoint end;
 
    Item(){}
+   Item(int x, int y, double angle, double length){
+      this.setSize(x,y,angle,length);
+   }
+   Item(MyPoint start, double angle, double length){
+      this.start = new MyPoint(start);
+      this.setLengthAndAngle(angle,length);
+   }
 
-   public void setLengthAndAngle(double width, double height) {
+
+   public double getEndY() {
+      return end.getY();
+   }
+
+   public double getEndX() {
+      return end.getX();
+   }
+
+   public MyPoint getEnd() {
+      return end;
+   }
+
+   public void setLengthAndAngle( double angle, double length ) {
+      this.angle=angle;
+      this.length=length;
+   }
+
+   public void setSides(double width, double height) {
       this.length=Math.hypot(Math.abs(width), Math.abs(height));
       this.angle=Math.atan2(height, width);
    }
@@ -20,7 +48,7 @@ public class Item {
       this.start.setX(x);
       this.start.setY(y);
       this.setEnd(x + width, y + height);
-      this.setLengthAndAngle(width, height);
+      this.setSides(width, height);
    }
 
    public void setSize(int x, int y, double angle, double length) {
@@ -37,15 +65,16 @@ public class Item {
       return null;
    }
 
-   public double getNextAngleRadians(double radians) {
+   public double nextAngleRadians(double radians) {
       return this.angle+radians;
    }
 
-   public double getNextAngleDegrees(double degrees) {
-     return this.getNextAngleRadians(Math.toRadians(degrees));
+   public double nextAngleDegrees(double degrees) {
+     return this.nextAngleRadians(Math.toRadians(degrees));
    }
 
-   public double getNextLength(Double percent) {
+   public double nextLength(Double percent) {
       return this.length*percent / 100.0;
    }
 }
+
