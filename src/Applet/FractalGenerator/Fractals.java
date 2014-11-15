@@ -9,6 +9,7 @@ public class Fractals {
    final private static int BRANCH_ON_TRUNK = 2;
    final private static int BRANCH_FLUFF = 3;
    final private static int BRANCH_RHOMBUS_PARALLEL = 4;
+   final private static int BRANCH_SUB_RHOMBUS_PARALLEL = 5;
 
    private int treeHeight;
    private Item root;
@@ -59,13 +60,11 @@ public class Fractals {
       int currentGen = (int)genome%10;
       genome/=10;
 
-      // TODO доделать алгоритмы в свиче
-
-      switch(currentGen){
+       switch(currentGen){
          case BRANCH_PYTHAGORAS: {
             int branchCount = randBranchCount(4);
             for(int i=0; i<branchCount; i++) {
-               int nextBranchLengthFactor = seed.nextInt(15)* 5 + 10;
+               int nextBranchLengthFactor = seed.nextInt(15)* 5 + 10; //TODO: replace literals with const
                double nextBranchLength = parentBranch.nextLength((double) nextBranchLengthFactor);
                int nextBranchAngleFactor = seed.nextInt(10)* 8 - 40;
                double nextBranchAngle = parentBranch.nextAngleDegrees((double) nextBranchAngleFactor);
@@ -78,7 +77,7 @@ public class Fractals {
          }
          case BRANCH_ON_TRUNK: {
             double tempLength = parentBranch.nextLength(80.0);
-            while(tempLength > 3) {
+            while(tempLength > 5) {
 
             }
             break;
