@@ -65,16 +65,18 @@ public class Item {
       return null;
    }
 
-   public double nextAngleRadians(double radians) {
+   //TODO: rename functions with "next"
+   public double adjAngleRad(double radians) {
       return this.angle+radians;
    }
 
-   public double nextAngleDegrees(double degrees) {
-     return this.nextAngleRadians(Math.toRadians(degrees));
+   public double adjAngleDeg(double degrees) {
+     return this.adjAngleRad(Math.toRadians(degrees));
    }
 
-   public double nextLength(Double percent) {
-      return this.length*percent / 100.0;
+   public double adjLen(double percent) {
+      return this.length * percent / 100.0;
    }
+
 }
 
