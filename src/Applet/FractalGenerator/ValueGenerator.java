@@ -20,7 +20,9 @@ public class ValueGenerator extends Random  {
    }
 
    public void adjustGenCount() {
-      while(genCount<genCountPerLevel) genCount++;
+      if (genCount != 0)
+         while(genCount < genCountPerLevel)
+            genCount++;
    }
    public ValueGenerator(long seed) {
       super(seed);
