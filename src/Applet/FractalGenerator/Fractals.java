@@ -58,7 +58,7 @@ public class Fractals {
 
               //TODO: replace literals to const with short names
               double nextBranchLength=parentBranch.adjLen(seed.nextIntBetween(10, 90, 5));
-              double nextBranchAngle=parentBranch.adjAngleDeg(seed.nextIntBetween(-40, 40, 8));
+              double nextBranchAngle=parentBranch.adjAngle(seed.nextIntBetween(-40, 40, 8));
 
               Item currentBranch=new Item(parentBranch.getEnd(), nextBranchAngle, nextBranchLength);
               lastGenerated.add(currentBranch);
