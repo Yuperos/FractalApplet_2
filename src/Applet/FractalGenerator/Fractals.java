@@ -63,6 +63,9 @@ public class Fractals {
               Item currentBranch=new Item(parentBranch.getEnd(), nextBranchAngle, nextBranchLength);
               lastGenerated.add(currentBranch);
               genNextBranch(genome, currentBranch);
+
+              //test commiting by new internet connection
+
            }
            break;
         }

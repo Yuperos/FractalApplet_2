@@ -70,7 +70,7 @@ public class Item {
       return this.angle+radians;
    }
 
-   public double adjAngleDeg(double degrees) {
+   public double adjAngle(double degrees) {
      return this.adjAngleRad(Math.toRadians(degrees));
    }
 
