@@ -60,11 +60,6 @@ public class Fractals {
               double nextBranchLength=parentBranch.adjLen(seed.nextIntBetween(10, 90, 5));
               double nextBranchAngle=parentBranch.adjAngle(seed.nextIntBetween(-40, 40, 8));
 
-              Item currentBranch=new Item(parentBranch.getEnd(), nextBranchAngle, nextBranchLength);
-              lastGenerated.add(currentBranch);
-              genNextBranch(genome, currentBranch);
-
-              //test commiting by new internet connection
 
            }
            break;
